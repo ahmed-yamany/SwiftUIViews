@@ -15,6 +15,18 @@ public struct OTPTextField<Content: View>: View {
 
     @FocusState private var focusTextField: Bool
     
+    public init(
+        otp: Binding<String>,
+        otpLength: Int,
+        spacing: CGFloat,
+        @ViewBuilder content: @escaping (String, Int, Bool) -> Content
+    ) {
+        self._otp = otp
+        self.otpLength = otpLength
+        self.spacing = spacing
+        self.content = content
+    }
+    
     public var body: some View {
         HStack(spacing: spacing) {
             ForEach(0..<otpLength, id: \.self) { index in
@@ -65,7 +77,7 @@ extension String {
 }
 
 #Preview {
-    OTPTextField(otp: .constant("202"), otpLength: 5) { pin, _, focused in
+    OTPTextField(otp: .constant("202"), otpLength: 5, spacing: <#CGFloat#>) { pin, _, focused in
         Text(pin)
             .frame(width: 60, height: 70)
             .background(.gray)
