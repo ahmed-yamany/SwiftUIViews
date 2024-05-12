@@ -77,7 +77,7 @@ extension String {
 }
 
 #Preview {
-    OTPTextField(otp: .constant("202"), otpLength: 5, spacing: <#CGFloat#>) { pin, _, focused in
+    OTPTextField(otp: .constant("202"), otpLength: 5, spacing: 8) { pin, _, focused in
         Text(pin)
             .frame(width: 60, height: 70)
             .background(.gray)
