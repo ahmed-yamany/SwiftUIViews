@@ -8,9 +8,9 @@
 import SwiftUI
 
 public struct Stepper: View {
-    @Binding var value: Int
-    var minValue: Int = -1000
-    var maxValue: Int = 1000
+    @Binding public var value: Int
+    public var minValue: Int = -1000
+    public var maxValue: Int = 1000
     
     @Environment(\.stepperStyle) private var style: any StepperStyle
     

@@ -8,11 +8,11 @@
 import SwiftUI
 
 public struct StepperConfigurations {
-    let value: Int
-    let minValue: Int
-    let maxValue: Int
-    let onPlus: () -> Void
-    let onMinus: () -> Void
+    public let value: Int
+    public let minValue: Int
+    public let maxValue: Int
+    public let onPlus: () -> Void
+    public let onMinus: () -> Void
 }
 
 public protocol StepperStyle: DynamicProperty {
