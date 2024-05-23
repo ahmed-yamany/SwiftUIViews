@@ -12,6 +12,12 @@ public struct Stepper: View {
     public var minValue: Int = -1000
     public var maxValue: Int = 1000
     
+    public init(value: Binding<Int>, minValue: Int, maxValue: Int) {
+        self._value = value
+        self.minValue = minValue
+        self.maxValue = maxValue
+    }
+    
     @Environment(\.stepperStyle) private var style: any StepperStyle
     
     public var body: some View {

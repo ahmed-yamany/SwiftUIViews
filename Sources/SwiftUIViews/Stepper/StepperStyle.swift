@@ -13,6 +13,20 @@ public struct StepperConfigurations {
     public let maxValue: Int
     public let onPlus: () -> Void
     public let onMinus: () -> Void
+    
+    public init(
+        value: Int,
+        minValue: Int,
+        maxValue: Int,
+        onPlus: @escaping () -> Void,
+        onMinus: @escaping () -> Void
+    ) {
+        self.value = value
+        self.minValue = minValue
+        self.maxValue = maxValue
+        self.onPlus = onPlus
+        self.onMinus = onMinus
+    }
 }
 
 public protocol StepperStyle: DynamicProperty {
