@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 public struct OTPTextField<Content: View>: View {
     @Binding public var otp: String
     public let otpLength: Int
@@ -77,15 +78,19 @@ extension String {
 }
 
 #Preview {
-    OTPTextField(otp: .constant("202"), otpLength: 5, spacing: 8) { pin, _, focused in
-        Text(pin)
-            .frame(width: 60, height: 70)
-            .background(.gray)
-            .mask(RoundedRectangle(cornerRadius: 16))
-            .background {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(lineWidth: 1)
-                    .fill(focused ? .brown : .clear)
-            }
+    if #available(iOS 15.0, *) {
+        OTPTextField(otp: .constant("202"), otpLength: 5, spacing: 8) { pin, _, focused in
+            Text(pin)
+                .frame(width: 60, height: 70)
+                .background(.gray)
+                .mask(RoundedRectangle(cornerRadius: 16))
+                .background {
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(lineWidth: 1)
+                        .fill(focused ? .brown : .clear)
+                }
+        }
+    } else {
+       Text("")
     }
 }
